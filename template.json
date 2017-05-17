@@ -75,6 +75,7 @@
 					"scripts/qmake.sh",
 					"scripts/java.sh",
 					"scripts/eclipse.sh",
+					"scripts/postgres.sh",
 					"scripts/cleanup.sh"
 				]
 			},
@@ -88,6 +89,7 @@
 					"scripts/qmake.sh",
 					"scripts/java.sh",
 					"scripts/eclipse.sh",
+					"scripts/postgres.sh",
 					"scripts/cleanup.sh"
 				]
 			}
