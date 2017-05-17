@@ -1,8 +1,7 @@
+#!/bin/bash
+
 echo "==============================================================================="
-echo "Cleanup.sh"
+echo "Install Java"
 echo "==============================================================================="
 
-yum -y clean all
-rm -rf VBoxGuestAdditions_*.iso
-rm -rf /tmp/rubygems-*
-
+yum -y install java

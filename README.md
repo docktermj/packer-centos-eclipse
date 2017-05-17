@@ -1,10 +1,11 @@
-# packer-eclipse
+# packer-eclipse-cpp
 
-This repository is an example of how to build machine images using [Packer](https://www.packer.io/).
-
-In this example, a 
+This repository uses [Packer](https://www.packer.io/).
+with a
 CentOS 7.1 (1503) ISO image 
-is used to create machine images for VMware and VirtualBox.
+to create machine images for VMware and VirtualBox.
+
+The virtual machine has Eclipse Neon for C/C++ Developers.
 
 ## Build dependencies
 
@@ -38,15 +39,15 @@ make virtualbox-iso
 
 1. Choose VMX file
    1. VMware Workstation > File > Open...
-      1. Navigate to `.../packer-centos-eclipse/output-vmware-iso-nnnnnnnnnn/`
-      1. Choose `packer-centos-eclipse-nnnnnnnnnn.vmx`
+      1. Navigate to `.../packer-centos-eclipse-cpp/output-vmware-iso-nnnnnnnnnn/`
+      1. Choose `packer-centos-eclipse-cpp-nnnnnnnnnn.vmx`
 1. Optional: Change networking
-   1. Navigate to VMware Workstation > My Computer > packer-centos-eclipse-nnnnnnnnnn
-   1. Right click on "packer-centos-eclipse-nnnnnnnnnn" and choose "Settings"
+   1. Navigate to VMware Workstation > My Computer > packer-centos-eclipse-cpp-nnnnnnnnnn
+   1. Right click on "packer-centos-eclipse-cpp-nnnnnnnnnn" and choose "Settings"
    1. Choose "Network Adapter" > "Network Connection" > :radio_button: Bridged: Connected directly to the physical network
    1. Click "Save"
 1. Run image
-   1. Choose VMware Workstation > My Computer > packer-centos-eclipse-nnnnnnnnnn
+   1. Choose VMware Workstation > My Computer > packer-centos-eclipse-cpp-nnnnnnnnnn
    1. Click "Start up this guest operating system"
 1. Username: vagrant  Password: vagrant
 
@@ -55,7 +56,7 @@ make virtualbox-iso
 ### Add to library
 
 ```console
-vagrant box add --name="packer-centos-eclipse-virtualbox" ./packer-centos-eclipse-virtualbox-nnnnnnnnnn.box
+vagrant box add --name="packer-centos-eclipse-cpp-virtualbox" ./packer-centos-eclipse-cpp-virtualbox-nnnnnnnnnn.box
 ```
 
 ### Run
@@ -64,10 +65,10 @@ An example of how to run in a new directory.
 
 #### Specify directory
 
-In this example the `/tmp/packer-centos-eclipse` directory is used.
+In this example the `/tmp/packer-centos-eclipse-cpp` directory is used.
 
 ```console
-export PACKER_CENTOS_ECLIPSE=/tmp/packer-centos-eclipse
+export PACKER_CENTOS_ECLIPSE_CPP=/tmp/packer-centos-eclipse-cpp
 ```
 
 #### Initialize directory
@@ -75,35 +76,35 @@ export PACKER_CENTOS_ECLIPSE=/tmp/packer-centos-eclipse
 Back up an old directory and initialize new directory with Vagrant image.
 
 ```console
-mv ${PACKER_CENTOS_ECLIPSE} ${PACKER_CENTOS_ECLIPSE}.$(date +%s)
-mkdir ${PACKER_CENTOS_ECLIPSE}
-cd ${PACKER_CENTOS_ECLIPSE}
-vagrant init packer-centos-eclipse-virtualbox
+mv ${PACKER_CENTOS_ECLIPSE_CPP} ${PACKER_CENTOS_ECLIPSE_CPP}.$(date +%s)
+mkdir ${PACKER_CENTOS_ECLIPSE_CPP}
+cd ${PACKER_CENTOS_ECLIPSE_CPP}
+vagrant init packer-centos-eclipse-cpp-virtualbox
 ```
 
 #### Enable remote login
 
 Modify Vagrantfile to allow remote login by
-uncommenting `config.vm.network` in `${PACKER_CENTOS_ECLIPSE}/Vagrantfile`. 
+uncommenting `config.vm.network` in `${PACKER_CENTOS_ECLIPSE_CPP}/Vagrantfile`. 
 Example:
 
 ```console
 sed -i.$(date +'%s') \
   -e 's/# config.vm.network \"public_network\"/config.vm.network \"public_network\"/g' \
-  ${PACKER_CENTOS_ECLIPSE}/Vagrantfile
+  ${PACKER_CENTOS_ECLIPSE_CPP}/Vagrantfile
 ```
 
 #### Start guest machine
 
 ```console
-cd ${PACKER_CENTOS_ECLIPSE}
+cd ${PACKER_CENTOS_ECLIPSE_CPP}
 vagrant up
 ```
 
 ### Login to guest machine
 
 ```console
-cd ${PACKER_CENTOS_ECLIPSE}
+cd ${PACKER_CENTOS_ECLIPSE_CPP}
 vagrant ssh
 ```
 
@@ -130,7 +131,7 @@ Password: vagrant
 To remove Vagrant image, on host machine:
 
 ```console
-vagrant box remove packer-centos-eclipse-virtualbox
+vagrant box remove packer-centos-eclipse-cpp-virtualbox
 ```
 
 ## References
