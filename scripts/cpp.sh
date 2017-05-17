@@ -3,7 +3,6 @@ echo "cpp.sh - Install C++ development environment"
 echo "==============================================================================="
 
 export GCC_VERSION=4.8.5
-export PATH=$PATH:/usr/lib64/qt5/bin
 
 yum -y install \
    curl-devel \
@@ -18,6 +17,4 @@ yum -y install \
    libxml2-devel \
    libxslt-devel \
    make \
-   openssl-devel \
-   qt5-qtbase-devel
-
+   openssl-devel

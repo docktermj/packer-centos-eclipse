@@ -72,6 +72,7 @@
 					"scripts/virtualbox.sh",
 					"scripts/yum-installs.sh",
 					"scripts/cpp.sh",
+					"scripts/qmake.sh",
 					"scripts/java.sh",
 					"scripts/eclipse.sh",
 					"scripts/cleanup.sh"
@@ -84,6 +85,7 @@
 					"scripts/vmware.sh",
 					"scripts/yum-installs.sh",
 					"scripts/cpp.sh",
+					"scripts/qmake.sh",
 					"scripts/java.sh",
 					"scripts/eclipse.sh",
 					"scripts/cleanup.sh"
