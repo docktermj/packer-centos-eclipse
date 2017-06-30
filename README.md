@@ -144,6 +144,12 @@ To remove Vagrant image, on host machine:
 ```console
 vagrant box remove packer-centos-eclipse-cpp-virtualbox
 ```
+## Run Eclipse remotely
+
+```console
+ssh -X -f vagrant@nn.nn.nn.nn eclipse
+```
+
 
 ## References
 1. [Build dependencies](https://github.com/docktermj/KnowledgeBase/blob/master/build-dependencies/packer.md).
